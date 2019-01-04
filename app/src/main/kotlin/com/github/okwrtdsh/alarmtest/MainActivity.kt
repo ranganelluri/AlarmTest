@@ -4,12 +4,13 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.media.RingtoneManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import butterknife.bindView
+import kotterknife.bindView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -55,11 +56,13 @@ class MainActivity : AppCompatActivity() {
             reset()
         }
 
+
+
         buttonCancel.setOnClickListener {
             alarmManager.cancel(
                 PendingIntent.getBroadcast(
                     applicationContext, 0, Intent(applicationContext, AlarmBroadcastReceiver::class.java), 0))
-            Toast.makeText(applicationContext, "CANCEL!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Alarm Cancelled ", Toast.LENGTH_SHORT).show()
         }
     }
 
